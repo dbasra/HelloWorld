@@ -4,14 +4,29 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+    int cnt = 0;
+    private TextView firstTextView;
+    private EditText emailEditText, passwordEditText;
+    private Button register, login;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        firstTextView = (TextView) findViewById(R.id.hi);
+        emailEditText = (EditText) findViewById(R.id.editText);
+        passwordEditText = (EditText) findViewById(R.id.editText2);
+        login = (Button) findViewById(R.id.button_login);
+        register = (Button) findViewById(R.id.button_Register);
     }
 
 
@@ -35,5 +50,25 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void loginToWorld(View view){
+        cnt++;
+        String email = String.valueOf(emailEditText.getText());
+        String password = String.valueOf(passwordEditText.getText());
+        if (email.contains("@") == false){
+            Toast.makeText(this, "invalid email", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (password.equals("kasCda84")){
+            Toast.makeText(this, "welcome " + email, Toast.LENGTH_LONG).show();
+        } else{
+            Toast.makeText(this, "wrong password", Toast.LENGTH_LONG).show();
+        }
+        /*if (cnt % 2 == 0){
+            firstTextView.setText("Again");
+        } else {
+            firstTextView.setText("You Suck");
+        }*/
+
     }
 }
