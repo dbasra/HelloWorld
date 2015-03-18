@@ -19,13 +19,13 @@ public class MyDialogFragment extends DialogFragment {
         theDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getActivity(), "Clicked OK", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Clicked OK", Toast.LENGTH_SHORT).show();
             }
         });
         theDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getActivity(), "Clicked Cancel", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Clicked Cancel", Toast.LENGTH_SHORT).show();
             }
         });
         return theDialog.create();

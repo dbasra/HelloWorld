@@ -30,7 +30,8 @@
         android:id="@+id/button_Register"
         android:layout_below="@+id/button_login"
         android:layout_alignRight="@+id/hi"
-        android:layout_alignEnd="@+id/hi" />
+        android:layout_alignEnd="@+id/hi"
+        android:onClick="randomRegister"/>
 
     <EditText
         android:layout_width="wrap_content"

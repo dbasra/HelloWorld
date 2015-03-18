@@ -1,6 +1,7 @@
 package com.example.daven.helloworld;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -76,5 +77,22 @@ public class MainActivity extends ActionBarActivity {
             firstTextView.setText("You Suck");
         }*/
 
+    }
+
+    public void randomRegister(View view) {
+        Intent goSecondLayout = new Intent(this, RegisterScreen.class);
+        final int result = 1;
+        startActivityForResult(goSecondLayout, result);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        String gotEmail = data.getStringExtra("NewEmail");
+        emailEditText.setText(gotEmail);
+        String gotPassword = data.getStringExtra("NewPass");
+        passwordEditText.setText(gotPassword);
+        firstTextView.setText("Welcome " + data.getStringExtra("NewName") + "!");
     }
 }
