@@ -66,8 +66,9 @@ public class MainActivity extends ActionBarActivity {
             Toast.makeText(this, "invalid email", Toast.LENGTH_LONG).show();
             return;
         }
-        if (password.equals("kasCda84")){
-            Toast.makeText(this, "welcome " + email, Toast.LENGTH_LONG).show();
+        if (password.equals("dad")){
+            Intent goAfterLogin = new Intent(this, AfterLoginScreen.class);
+            startActivity(goAfterLogin);
         } else{
             Toast.makeText(this, "wrong password", Toast.LENGTH_LONG).show();
         }
@@ -89,10 +90,15 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        String gotEmail = data.getStringExtra("NewEmail");
-        emailEditText.setText(gotEmail);
-        String gotPassword = data.getStringExtra("NewPass");
-        passwordEditText.setText(gotPassword);
-        firstTextView.setText("Welcome " + data.getStringExtra("NewName") + "!");
+        try{
+            String gotEmail = data.getStringExtra("NewEmail");
+            emailEditText.setText(gotEmail);
+            String gotPassword = data.getStringExtra("NewPass");
+            passwordEditText.setText(gotPassword);
+            firstTextView.setText("Welcome " + data.getStringExtra("NewName") + "!");
+        } catch (NullPointerException e){
+
+        }
+
     }
 }

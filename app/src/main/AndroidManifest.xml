@@ -19,6 +19,9 @@
         <activity android:name=".RegisterScreen"
             android:label="Register"
             android:theme="@style/AppTheme" />
+        <activity android:name=".AfterLoginScreen"
+            android:label="Login"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

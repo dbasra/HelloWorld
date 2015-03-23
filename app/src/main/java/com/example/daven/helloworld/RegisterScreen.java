@@ -32,8 +32,13 @@ public class RegisterScreen extends Activity {
             goBack.putExtra("NewEmail", actualEmail);
             goBack.putExtra("NewPass", actualPass);
             goBack.putExtra("NewName", actualName);
-            setResult(RESULT_OK, goBack);
-            finish();
+            try {
+                setResult(RESULT_OK, goBack);
+                finish();
+            } catch (NullPointerException e){
+                finish();
+            }
+
         } else {
             Toast.makeText(this, "The Passwords Do Not Match", Toast.LENGTH_LONG).show();
         }
