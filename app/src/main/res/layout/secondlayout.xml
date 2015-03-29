@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/RegisterPage">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,9 +18,11 @@
         android:text=""
         android:ems="10"
         android:id="@+id/editText3"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:hint="NAME"/>
+        android:hint="NAME"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignStart="@+id/editText4"
+        android:layout_marginTop="125dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -57,8 +60,19 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/button"
+        android:onClick="registeredPerson"
+        android:layout_below="@+id/editText7"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/editText7"
         android:layout_below="@+id/editText6"
         android:layout_centerHorizontal="true"
-        android:onClick="registeredPerson"/>
+        android:hint="USERNAME"/>
+
+
 
 </RelativeLayout>

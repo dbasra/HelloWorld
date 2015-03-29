@@ -11,13 +11,29 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
+import com.microsoft.windowsazure.mobileservices.*;
+import java.net.MalformedURLException;
+import android.os.AsyncTask;
+import com.google.common.util.concurrent.FutureCallback;
+import com.google.common.util.concurrent.Futures;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceList;
+import com.microsoft.windowsazure.mobileservices.http.NextServiceFilterCallback;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
+import java.net.MalformedURLException;
 
 public class MainActivity extends ActionBarActivity {
     int cnt = 0;
     private TextView firstTextView;
     private EditText emailEditText, passwordEditText;
     private Button register, login;
+    private MobileServiceClient mClient;
+    private MobileServiceTable<Item> mToDoTable;
 
 
     @Override
@@ -29,6 +45,17 @@ public class MainActivity extends ActionBarActivity {
         passwordEditText = (EditText) findViewById(R.id.editText2);
         login = (Button) findViewById(R.id.button_login);
         register = (Button) findViewById(R.id.button_Register);
+        try {
+            mClient = new MobileServiceClient(
+                    "https://lock-out.azure-mobile.net/",
+                    "MTBwckxMKUfDPPxZVBXAlJSviYeJMA68",
+                    this
+            );
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -101,4 +128,12 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
+    public class Item {
+        public String Email;
+        public String password;
+    }
+
+
+
 }
+

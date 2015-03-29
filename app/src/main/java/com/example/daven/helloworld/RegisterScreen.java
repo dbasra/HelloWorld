@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static com.example.daven.helloworld.MainActivity.*;
+
 /**
  * Created by Daven on 3/18/15.
  */
